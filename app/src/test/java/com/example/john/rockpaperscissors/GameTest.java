@@ -18,7 +18,7 @@ public class GameTest {
 
     @Before
     public void setUp() throws Exception {
-        game = new Game(playerOption, gameOption);
+        game = new Game(gameOption);
     }
 
     @Test
@@ -30,22 +30,19 @@ public class GameTest {
     @Test
     public void testResultDraw () {
         game.setGameOption(Option.ROCK);
-        game.setPlayerOption(Option.ROCK);
-        assertEquals("draw", game.result());
+        assertEquals("draw", game.result("rock"));
     }
 
     @Test
     public void testResultWin () {
-        game.setPlayerOption(Option.PAPER);
         game.setGameOption(Option.ROCK);
-        assertEquals("win", game.result());
+        assertEquals("win", game.result("paper"));
     }
 
     @Test
     public void testResultLose () {
-        game.setPlayerOption(Option.PAPER);
         game.setGameOption(Option.SCISSORS);
-        assertEquals("lose", game.result());
+        assertEquals("lose", game.result("paper"));
     }
 
 }
